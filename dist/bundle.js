@@ -11353,14 +11353,86 @@ var App = function (_React$Component) {
 				'div',
 				null,
 				_react2.default.createElement(
-					'h1',
-					{ className: 'hello' },
-					'Hello World'
+					'li',
+					{ className: 'list-group-item d-flex justify-content-between ls-condensed' },
+					_react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'h6',
+							{ className: 'my-0' },
+							'Product 1'
+						),
+						_react2.default.createElement(
+							'small',
+							{ className: 'text-muted' },
+							'Release: 2017'
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'd-flex flex-column' },
+						_react2.default.createElement(
+							'span',
+							{ className: 'text-muted d-flex justify-content-between align-items-baseline' },
+							_react2.default.createElement(
+								'button',
+								{ className: 'btn btn-sm btn-light' },
+								'-'
+							),
+							_react2.default.createElement(
+								'button',
+								{ className: 'btn btn-sm btn-light' },
+								'+'
+							)
+						),
+						_react2.default.createElement(
+							'span',
+							{ className: 'badge' },
+							'The cake is a lie'
+						)
+					)
 				),
 				_react2.default.createElement(
-					'h3',
-					null,
-					'Something blabla'
+					'li',
+					{ className: 'list-group-item d-flex justify-content-between ls-condensed' },
+					_react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'h6',
+							{ className: 'my-0' },
+							'The cake is a lie'
+						),
+						_react2.default.createElement(
+							'small',
+							{ className: 'text-muted' },
+							'Release:The cake is a lie'
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'd-flex flex-column' },
+						_react2.default.createElement(
+							'span',
+							{ className: 'text-muted d-flex justify-content-between align-items-baseline' },
+							_react2.default.createElement(
+								'button',
+								{ className: 'btn btn-sm btn-light' },
+								'-'
+							),
+							_react2.default.createElement(
+								'button',
+								{ className: 'btn btn-sm btn-light' },
+								'+'
+							)
+						),
+						_react2.default.createElement(
+							'span',
+							{ className: 'badge' },
+							'The cake is a lie'
+						)
+					)
 				)
 			);
 		}
