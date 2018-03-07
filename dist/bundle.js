@@ -11313,11 +11313,11 @@ module.exports = focusNode;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+__webpack_require__(16);
+
 var _jquery = __webpack_require__(7);
 
 var _jquery2 = _interopRequireDefault(_jquery);
-
-__webpack_require__(16);
 
 var _react = __webpack_require__(4);
 
@@ -11335,110 +11335,108 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-console.log("hey");
-
 var App = function (_React$Component) {
 	_inherits(App, _React$Component);
 
-	function App() {
+	function App(props) {
 		_classCallCheck(this, App);
 
-		return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+		_this.state = {
+			data: [{
+				"id": 0,
+				"name": "JavaScript: The Definitive Guide, 6th Edition",
+				"release": "September 2010",
+				"amount": 1,
+				"price": "2.99"
+			}, {
+				"id": 1,
+				"name": " Edition",
+				"release": "September 2010",
+				"amount": 1,
+				"price": "2.99"
+			}, {
+				"id": 2,
+				"name": "Ruby on Rails: Up and Running",
+				"release": "March 2007",
+				"amount": 1,
+				"price": "30.99"
+			}]
+		};
+		return _this;
 	}
 
 	_createClass(App, [{
 		key: 'render',
 		value: function render() {
+			return this.state.data.map(function (person, i) {
+				return _react2.default.createElement(Product, { data: person });
+			});
+		}
+	}]);
+
+	return App;
+}(_react2.default.Component);
+
+var Product = function (_React$Component2) {
+	_inherits(Product, _React$Component2);
+
+	function Product() {
+		_classCallCheck(this, Product);
+
+		return _possibleConstructorReturn(this, (Product.__proto__ || Object.getPrototypeOf(Product)).apply(this, arguments));
+	}
+
+	_createClass(Product, [{
+		key: 'render',
+		value: function render() {
 			return _react2.default.createElement(
-				'div',
-				null,
+				'li',
+				{ className: 'list-group-item d-flex justify-content-between lh-condensed' },
 				_react2.default.createElement(
-					'li',
-					{ className: 'list-group-item d-flex justify-content-between ls-condensed' },
+					'div',
+					null,
 					_react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'h6',
-							{ className: 'my-0' },
-							'Product 1'
-						),
-						_react2.default.createElement(
-							'small',
-							{ className: 'text-muted' },
-							'Release: 2017'
-						)
+						'h6',
+						{ className: 'my-0' },
+						this.props.data.name
 					),
 					_react2.default.createElement(
-						'div',
-						{ className: 'd-flex flex-column' },
-						_react2.default.createElement(
-							'span',
-							{ className: 'text-muted d-flex justify-content-between align-items-baseline' },
-							_react2.default.createElement(
-								'button',
-								{ className: 'btn btn-sm btn-light' },
-								'-'
-							),
-							_react2.default.createElement(
-								'button',
-								{ className: 'btn btn-sm btn-light' },
-								'+'
-							)
-						),
-						_react2.default.createElement(
-							'span',
-							{ className: 'badge' },
-							'The cake is a lie'
-						)
+						'small',
+						{ className: 'text-muted' },
+						'Release: ',
+						this.props.data.release
 					)
 				),
 				_react2.default.createElement(
-					'li',
-					{ className: 'list-group-item d-flex justify-content-between ls-condensed' },
+					'div',
+					{ className: 'd-flex flex-column' },
 					_react2.default.createElement(
-						'div',
-						null,
+						'span',
+						{ className: 'text-muted d-flex justify-content-center align-items-baseline' },
 						_react2.default.createElement(
-							'h6',
-							{ className: 'my-0' },
-							'The cake is a lie'
+							'button',
+							{ className: 'btn btn-sm btn-light' },
+							'-'
 						),
 						_react2.default.createElement(
-							'small',
-							{ className: 'text-muted' },
-							'Release:The cake is a lie'
+							'button',
+							{ className: 'btn btn-sm btn-light' },
+							'+'
 						)
 					),
 					_react2.default.createElement(
-						'div',
-						{ className: 'd-flex flex-column' },
-						_react2.default.createElement(
-							'span',
-							{ className: 'text-muted d-flex justify-content-between align-items-baseline' },
-							_react2.default.createElement(
-								'button',
-								{ className: 'btn btn-sm btn-light' },
-								'-'
-							),
-							_react2.default.createElement(
-								'button',
-								{ className: 'btn btn-sm btn-light' },
-								'+'
-							)
-						),
-						_react2.default.createElement(
-							'span',
-							{ className: 'badge' },
-							'The cake is a lie'
-						)
+						'span',
+						{ className: 'badge' },
+						this.props.data.amount
 					)
 				)
 			);
 		}
 	}]);
 
-	return App;
+	return Product;
 }(_react2.default.Component);
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
