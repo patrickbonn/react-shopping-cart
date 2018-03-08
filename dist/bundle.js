@@ -11335,6 +11335,10 @@ var _Header = __webpack_require__(32);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+var _Form = __webpack_require__(33);
+
+var _Form2 = _interopRequireDefault(_Form);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11382,9 +11386,22 @@ var App = function (_React$Component) {
 				'div',
 				null,
 				_react2.default.createElement(_Header2.default, null),
-				this.state.data.map(function (person, i) {
-					return _react2.default.createElement(_Product2.default, { data: person });
-				})
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-8' },
+						_react2.default.createElement(_Form2.default, null)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-4' },
+						this.state.data.map(function (person, i) {
+							return _react2.default.createElement(_Product2.default, { key: i, data: person });
+						})
+					)
+				)
 			);
 		}
 	}]);
@@ -35250,6 +35267,391 @@ var Header = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Header;
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Form = function (_React$Component) {
+  _inherits(Form, _React$Component);
+
+  function Form() {
+    _classCallCheck(this, Form);
+
+    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+  }
+
+  _createClass(Form, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "col-md-8 order-md-1" },
+        _react2.default.createElement(
+          "h4",
+          { className: "mb-3" },
+          "Billing address"
+        ),
+        _react2.default.createElement(
+          "form",
+          { className: "needs-validation", noValidate: true },
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "col-md-6 mb-3" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "firstName" },
+                "First name"
+              ),
+              _react2.default.createElement("input", { type: "text", className: "form-control", id: "firstName", placeholder: "", value: "", required: true }),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Valid first name is required."
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "col-md-6 mb-3" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "lastName" },
+                "Last name"
+              ),
+              _react2.default.createElement("input", { type: "text", className: "form-control", id: "lastName", placeholder: "", value: "", required: true }),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Valid last name is required."
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "mb-3" },
+            _react2.default.createElement(
+              "label",
+              { htmlFor: "username" },
+              "Username"
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "input-group" },
+              _react2.default.createElement(
+                "div",
+                { className: "input-group-prepend" },
+                _react2.default.createElement(
+                  "span",
+                  { className: "input-group-text" },
+                  "@"
+                )
+              ),
+              _react2.default.createElement("input", { type: "text", className: "form-control", id: "username", placeholder: "Username", required: true }),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Your username is required."
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "mb-3" },
+            _react2.default.createElement(
+              "label",
+              { htmlFor: "email" },
+              "Email ",
+              _react2.default.createElement(
+                "span",
+                { className: "text-muted" },
+                "(Optional)"
+              )
+            ),
+            _react2.default.createElement("input", { type: "email", className: "form-control", id: "email", placeholder: "you@example.com" }),
+            _react2.default.createElement(
+              "div",
+              { className: "invalid-feedback" },
+              "Please enter a valid email address for shipping updates."
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "mb-3" },
+            _react2.default.createElement(
+              "label",
+              { htmlFor: "address" },
+              "Address"
+            ),
+            _react2.default.createElement("input", { type: "text", className: "form-control", id: "address", placeholder: "1234 Main St", required: true }),
+            _react2.default.createElement(
+              "div",
+              { className: "invalid-feedback" },
+              "Please enter your shipping address."
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "mb-3" },
+            _react2.default.createElement(
+              "label",
+              { htmlFor: "address2" },
+              "Address 2 ",
+              _react2.default.createElement(
+                "span",
+                { className: "text-muted" },
+                "(Optional)"
+              )
+            ),
+            _react2.default.createElement("input", { type: "text", className: "form-control", id: "address2", placeholder: "Apartment or suite" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "col-md-5 mb-3" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "country" },
+                "Country"
+              ),
+              _react2.default.createElement(
+                "select",
+                { className: "custom-select d-block w-100", id: "country", required: true },
+                _react2.default.createElement(
+                  "option",
+                  { value: "" },
+                  "Choose..."
+                ),
+                _react2.default.createElement(
+                  "option",
+                  null,
+                  "United States"
+                )
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Please select a valid country."
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "col-md-4 mb-3" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "state" },
+                "State"
+              ),
+              _react2.default.createElement(
+                "select",
+                { className: "custom-select d-block w-100", id: "state", required: true },
+                _react2.default.createElement(
+                  "option",
+                  { value: "" },
+                  "Choose..."
+                ),
+                _react2.default.createElement(
+                  "option",
+                  null,
+                  "California"
+                )
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Please provide a valid state."
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "col-md-3 mb-3" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "zip" },
+                "Zip"
+              ),
+              _react2.default.createElement("input", { type: "text", className: "form-control", id: "zip", placeholder: "", required: true }),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Zip code required."
+              )
+            )
+          ),
+          _react2.default.createElement("hr", { className: "mb-4" }),
+          _react2.default.createElement(
+            "div",
+            { className: "custom-control custom-checkbox" },
+            _react2.default.createElement("input", { type: "checkbox", className: "custom-control-input", id: "same-address" }),
+            _react2.default.createElement(
+              "label",
+              { className: "custom-control-label", htmlFor: "same-address" },
+              "Shipping address is the same as my billing address"
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "custom-control custom-checkbox" },
+            _react2.default.createElement("input", { type: "checkbox", className: "custom-control-input", id: "save-info" }),
+            _react2.default.createElement(
+              "label",
+              { className: "custom-control-label", htmlFor: "save-info" },
+              "Save this information for next time"
+            )
+          ),
+          _react2.default.createElement("hr", { className: "mb-4" }),
+          _react2.default.createElement(
+            "h4",
+            { className: "mb-3" },
+            "Payment"
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "d-block my-3" },
+            _react2.default.createElement(
+              "div",
+              { className: "custom-control custom-radio" },
+              _react2.default.createElement("input", { id: "credit", name: "paymentMethod", type: "radio", className: "custom-control-input", required: true }),
+              _react2.default.createElement(
+                "label",
+                { className: "custom-control-label", htmlFor: "credit" },
+                "Credit card"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "custom-control custom-radio" },
+              _react2.default.createElement("input", { id: "debit", name: "paymentMethod", type: "radio", className: "custom-control-input", required: true }),
+              _react2.default.createElement(
+                "label",
+                { className: "custom-control-label", htmlFor: "debit" },
+                "Debit card"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "custom-control custom-radio" },
+              _react2.default.createElement("input", { id: "paypal", name: "paymentMethod", type: "radio", className: "custom-control-input", required: true }),
+              _react2.default.createElement(
+                "label",
+                { className: "custom-control-label", htmlFor: "paypal" },
+                "Paypal"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "col-md-6 mb-3" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "cc-name" },
+                "Name on card"
+              ),
+              _react2.default.createElement("input", { type: "text", className: "form-control", id: "cc-name", placeholder: "", required: true }),
+              _react2.default.createElement(
+                "small",
+                { className: "text-muted" },
+                "Full name as displayed on card"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Name on card is required"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "col-md-6 mb-3" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "cc-number" },
+                "Credit card number"
+              ),
+              _react2.default.createElement("input", { type: "text", className: "form-control", id: "cc-number", placeholder: "", required: true }),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Credit card number is required"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "col-md-3 mb-3" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "cc-expiration" },
+                "Expiration"
+              ),
+              _react2.default.createElement("input", { type: "text", className: "form-control", id: "cc-expiration", placeholder: "", required: true }),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Expiration date required"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "col-md-3 mb-3" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "cc-expiration" },
+                "CVV"
+              ),
+              _react2.default.createElement("input", { type: "text", className: "form-control", id: "cc-cvv", placeholder: "", required: true }),
+              _react2.default.createElement(
+                "div",
+                { className: "invalid-feedback" },
+                "Security code required"
+              )
+            )
+          ),
+          _react2.default.createElement("hr", { className: "mb-4" }),
+          _react2.default.createElement(
+            "button",
+            { className: "btn btn-primary btn-lg btn-block", type: "submit" },
+            "Continue to checkout"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Form;
+}(_react2.default.Component);
+
+exports.default = Form;
 
 /***/ })
 /******/ ]);

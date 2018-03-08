@@ -4,7 +4,8 @@ import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Product from './Product.jsx';
-import Header from './Header.jsx'
+import Header from './Header.jsx';
+import Form from './Form.jsx';
 
 class App extends React.Component {
 	constructor(props) {
@@ -40,7 +41,14 @@ class App extends React.Component {
 	  return (
 	  	<div>
 		  	<Header/>
-				{this.state.data.map((person, i) => <Product data= {person} />)}
+		  	<div className="row">
+		  		<div className="col-md-8">
+						<Form/>
+					</div>	
+		  		<div className="col-md-4">
+						{this.state.data.map((person, i) => <Product key={i} data= {person} />)}
+					</div>	
+	    	</div>
 	    </div>
 	  );
 	}
