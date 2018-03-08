@@ -4,6 +4,7 @@ import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Product from './Product.jsx';
+import Header from './Header.jsx'
 
 class App extends React.Component {
 	constructor(props) {
@@ -37,7 +38,10 @@ class App extends React.Component {
 	}
 	render() {
 	  return (
-	    this.state.data.map((person, i) => <Product data= {person} />)
+	  	<div>
+		  	<Header/>
+				{this.state.data.map((person, i) => <Product data= {person} />)}
+	    </div>
 	  );
 	}
 }
