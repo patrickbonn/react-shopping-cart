@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header (props) {
+function Header(props) {
 	return (
 		<div className="py-5 text-center">
 			<img className="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
@@ -17,7 +17,7 @@ function Header (props) {
 		</div>	
 	);
 }
-Header(props);
+
 
 
 export default Header;
