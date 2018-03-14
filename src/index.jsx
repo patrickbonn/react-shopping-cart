@@ -37,6 +37,24 @@ class App extends React.Component {
 	    ],
 	  }
 	}
+
+	likeItem(item) {
+		var data = this.state.data
+		data[item.props.data.id].liked = !data[item.props.data.id].liked
+    this.setState({data: data})
+    console.log(item);
+  }
+  changeAmount(item ,action){
+    var copy = this.state.data[item.props.data.id]
+
+      if(action) {
+        copy.amount++;
+      } else if (copy.amount > 0){
+        copy.amount--;
+      }
+      this.setState({amount: copy.amount})
+	}
+	
 	render() {
 	  return (
 	  	<div>
@@ -46,7 +64,7 @@ class App extends React.Component {
 						<Form/>
 					</div>	
 		  		<div className="col-md-4">
-						{this.state.data.map((person, i) => <Product key={i} data= {person} />)}
+						{this.state.data.map((person, i) => <Product key={i} childChangeAmount={this.changeAmount.bind(this)} childLikeItem={this.likeItem.bind(this)} data= {person} />)}
 					</div>	
 	    	</div>
 	    </div>
