@@ -29,13 +29,15 @@ class Product extends React.Component {
           <small className="text-muted">Release: { this.props.data.release }</small>
           <button className={"btn btn-sm " + (this.state.liked ? "btn-primary" : "btn-output-primary") }onClick={(e)=> this.likeItem(this)}>Like</button>
         </div>
+        <small>Price : {this.props.data.price} </small>
         <div className="d-flex flex-column">
           <span className="text-muted d-flex justify-content-center align-items-baseline">
             <button className="btn btn-sm btn-light" onClick={(e)=> this.changeAmount(false)}>-</button>
             <button className="btn btn-sm btn-light" onClick={(e)=> this.changeAmount(true)}>+</button>
           </span>
-          <span className="badge">{ this.state.amount }</span>
-        </div>
+          <span className="badge">{ this.state.amount }
+          </span>
+        </div> 
       </li>
 	  );
 	}
