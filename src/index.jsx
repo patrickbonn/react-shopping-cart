@@ -64,11 +64,13 @@ class App extends React.Component {
       this.setState({amount: copy.amount})
 	}
   onChange(id, value) {
-		let formCopy = {...this.state.form};
+		let formCopy = this.state.form;
+		console.log("hey");
 		console.log(formCopy);
+
 		formCopy[id] = value
     this.setState({ formCopy:this.form})
-    //localStorage.setItem('react-cart', JSON.stringify(this.state));
+    localStorage.setItem('react-cart', JSON.stringify(this.state));
   }
 	
 	render() {
