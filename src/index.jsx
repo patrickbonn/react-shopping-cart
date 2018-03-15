@@ -34,18 +34,27 @@ class App extends React.Component {
 	        "amount": 0,
 	        "price":"30.99"
 	      }
-	    ],
+			],
+			form: {
+				firstName: "",
+				lastName: "",
+				userName: "",
+				email: "",
+				address: "",
+				address2: "",
+				zip: "",
+
+			}
 	  }
 	}
 
 	likeItem(item) {
-		var data = {...this.state.data}
-		data[item.props.data.id].liked = !data[item.props.data.id].liked
-    this.setState({data: data})
-    console.log(item);
+		let data = [...this.state.data]
+		data[item.props.recievedProduct.id].liked = !data[item.props.recievedProduct.id].liked
+		this.setState({data: data})
   }
   changeAmount(item ,action){
-    var copy = this.state.data[item.props.data.id]
+    var copy = this.state.data[item.props.recievedProduct.id]
 
       if(action) {
 				copy.amount++;
@@ -54,6 +63,13 @@ class App extends React.Component {
       }
       this.setState({amount: copy.amount})
 	}
+  onChange(id, value) {
+		let formCopy = {...this.state.form};
+		console.log(formCopy);
+		formCopy[id] = value
+    this.setState({ formCopy:this.form})
+    //localStorage.setItem('react-cart', JSON.stringify(this.state));
+  }
 	
 	render() {
 	  return (
@@ -61,10 +77,16 @@ class App extends React.Component {
 		  	<Header/>
 		  	<div className="row">
 		  		<div className="col-md-8">
-						<Form/>
+						<Form form={this.state.form}
+						childOnChange={this.onChange.bind(this)}/>
 					</div>	
 		  		<div className="col-md-4">
-						{this.state.data.map((person, i) => <Product key={i} childChangeAmount={this.changeAmount.bind(this)} childLikeItem={this.likeItem.bind(this)} data= {person} />)}
+						{this.state.data.map((singleProduct, i) => 
+						<Product 
+						key={i} 
+						childChangeAmount={this.changeAmount.bind(this)} 
+						childLikeItem={this.likeItem.bind(this)} 
+						recievedProduct= {singleProduct} />)}
 					</div>	
 	    	</div>
 	    </div>
