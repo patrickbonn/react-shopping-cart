@@ -39,7 +39,7 @@ class App extends React.Component {
 	}
 
 	likeItem(item) {
-		var data = this.state.data
+		var data = {...this.state.data}
 		data[item.props.data.id].liked = !data[item.props.data.id].liked
     this.setState({data: data})
     console.log(item);
@@ -48,7 +48,7 @@ class App extends React.Component {
     var copy = this.state.data[item.props.data.id]
 
       if(action) {
-        copy.amount++;
+				copy.amount++;
       } else if (copy.amount > 0){
         copy.amount--;
       }

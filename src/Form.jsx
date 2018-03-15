@@ -1,6 +1,20 @@
 import React from 'react';
 
 class Form extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      form: {}
+    }
+  }
+
+  onChange(id, value) {
+    let data = this.state.form;
+    data[id] = value
+    this.setState({ form:data})
+    localStorage.setItem('react-cart', JSON.stringify(this.state));
+  }
+
 	render() {
 		return (
 			<div className="col-md-8 order-md-1">
@@ -9,14 +23,14 @@ class Form extends React.Component {
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="firstName">First name</label>
-                <input type="text" className="form-control" id="firstName" placeholder="" value="" required />
+                <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="firstName" placeholder="" value={this.state.form.firstName} required />
                 <div className="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="lastName">Last name</label>
-                <input type="text" className="form-control" id="lastName" placeholder="" value="" required />
+                <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="lastName" placeholder="" value={this.state.form.lastName} required />
                 <div className="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -29,7 +43,7 @@ class Form extends React.Component {
                 <div className="input-group-prepend">
                   <span className="input-group-text">@</span>
                 </div>
-                <input type="text" className="form-control" id="username" placeholder="Username" required />
+                <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="username" placeholder="Username" required />
                 <div className="invalid-feedback">
                   Your username is required.
                 </div>
@@ -38,7 +52,7 @@ class Form extends React.Component {
 
             <div className="mb-3">
               <label htmlFor="email">Email <span className="text-muted">(Optional)</span></label>
-              <input type="email" className="form-control" id="email" placeholder="you@example.com" />
+              <input type="email" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="email" placeholder="you@example.com" value={this.state.form.email} />
               <div className="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
@@ -46,7 +60,7 @@ class Form extends React.Component {
 
             <div className="mb-3">
               <label htmlFor="address">Address</label>
-              <input type="text" className="form-control" id="address" placeholder="1234 Main St" required />
+              <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="address" placeholder="1234 Main St" value={this.state.form.address} required />
               <div className="invalid-feedback">
                 Please enter your shipping address.
               </div>
@@ -54,7 +68,7 @@ class Form extends React.Component {
 
             <div className="mb-3">
               <label htmlFor="address2">Address 2 <span className="text-muted">(Optional)</span></label>
-              <input type="text" className="form-control" id="address2" placeholder="Apartment or suite" />
+              <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="address2" placeholder="Apartment or suite" value={this.state.form.address2} />
             </div>
 
             <div className="row">
@@ -80,7 +94,7 @@ class Form extends React.Component {
               </div>
               <div className="col-md-3 mb-3">
                 <label htmlFor="zip">Zip</label>
-                <input type="text" className="form-control" id="zip" placeholder="" required />
+                <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="zip" placeholder="" required />
                 <div className="invalid-feedback">
                   Zip code required.
                 </div>
@@ -116,7 +130,7 @@ class Form extends React.Component {
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="cc-name">Name on card</label>
-                <input type="text" className="form-control" id="cc-name" placeholder="" required />
+                <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="cc-name" placeholder="" required />
                 <small className="text-muted">Full name as displayed on card</small>
                 <div className="invalid-feedback">
                   Name on card is required
@@ -124,7 +138,7 @@ class Form extends React.Component {
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="cc-number">Credit card number</label>
-                <input type="text" className="form-control" id="cc-number" placeholder="" required />
+                <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="cc-number" placeholder="" required />
                 <div className="invalid-feedback">
                   Credit card number is required
                 </div>
@@ -133,14 +147,14 @@ class Form extends React.Component {
             <div className="row">
               <div className="col-md-3 mb-3">
                 <label htmlFor="cc-expiration">Expiration</label>
-                <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
+                <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="cc-expiration" placeholder="" required />
                 <div className="invalid-feedback">
                   Expiration date required
                 </div>
               </div>
               <div className="col-md-3 mb-3">
                 <label htmlFor="cc-expiration">CVV</label>
-                <input type="text" className="form-control" id="cc-cvv" placeholder="" required />
+                <input type="text" onChange={(e) => this.onChange(e.target.id, e.target.value)} className="form-control" id="cc-cvv" placeholder="" required />
                 <div className="invalid-feedback">
                   Security code required
                 </div>
